@@ -1,0 +1,19 @@
+Increase Powershell Script maximum size
+The default Powershell script max size is 1,000 characters. Any scripts larger than this will timeout after 4 minutes (default timeout amount). To increase the max size to 4,000 characters which will cover almost any script we are going to run automatically follow the below:
+
+Login to the server that has the orchestration server on it
+Launch Notepad as an administrator
+Click Start
+Search notepad
+Right click on Notepad and click Run as administrator
+Navigate to C:\Program Files\Freshworks\Orchestration Server\Resources\RUBY\Ruby27-x64\lib\ruby\2.7.0\webrick\
+Open httprequest.rb on the Orchestration server with Notepad
+Search for MAX_URI_LENGTH and add a 0 to the value (change from 2083 to 20830)
+Click file then Save
+Yes to the overwrite prompt (if prompted)
+Close notepad
+If you experience a file in use error, perform the below, then the above. 
+
+Open Services.msc
+Shut down the Orchestration Server lines via right click stop
+After completing the above steps to change the valud, right click on each to start the server again.
